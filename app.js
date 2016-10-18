@@ -21,8 +21,8 @@ bot.on('message', function (msg) {
     fileObj.then((data) => {
         console.log('Succes file downloading to ' + data);
         bot.sendMessage(chatId,'Succes file downloading to ' + data);
-    }
-        
+    
+    
         unirest.get("https://faceplusplus-faceplusplus.p.mashape.com/detection/detect?" + data)
             .header("X-Mashape-Key", "ZiSvxlSC2LmshyfmX0kP29QLie0jp19p1qljsnurHNcHpSBLTF")
             .header("Accept", "application/json")
