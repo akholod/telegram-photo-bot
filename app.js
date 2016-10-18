@@ -7,7 +7,7 @@ const bot = new TelegramBot(token, {polling: true});
 
 bot.on('message', function (msg) {
     'use strict'
-    //console.log(msg);
+    console.log(msg);
     let chatId = msg.chat.id;
     if(!msg.document) {
         return bot.sendMessage(chatId,'This is no photo image');
@@ -31,8 +31,6 @@ bot.on('message', function (msg) {
         });
         
     })
-    
-    
     
 });
 
