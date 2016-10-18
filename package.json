@@ -9,6 +9,7 @@
   "author": "akholod",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.14.0",
     "node-telegram-bot-api": "^0.24.0",
     "unirest": "^0.5.1"
   }
