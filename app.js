@@ -5,10 +5,16 @@ const token = '289118113:AAGZfNMD_ziSF5HRdhLK3DHBDoPbIsiSJ34';
 
 const bot = new TelegramBot(token, {polling: true});
 
+
+
 bot.on('message', function (msg) {
     'use strict'
-    //console.log(msg);
+    console.log(msg);
     var chatId = msg.chat.id;
+    if(msg.text ==='/start'){
+        return bot.sendMessage(chatId, 'Привет, отправь мне фото человека, как файл или как фото в хоршем качестве');
+    }
+    
     if(!msg.document  && !msg.photo) {
         return bot.sendMessage(chatId,'Это ты мне не фото отпрвил, отправь фото');
     }

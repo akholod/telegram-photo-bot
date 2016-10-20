@@ -8,15 +8,17 @@ module.exports = function createResultMessege (obj) {
         race,
         raceConfidence,
         smiling;
+        
     age = obj.attribute.age.value;
     gender = obj.attribute.gender.value
     genderConfidence = obj.attribute.gender.confidence;
+    race = obj.attribute.race.value;
     raceConfidence = obj.attribute.race.confidence;
     smiling = obj.attribute.smiling.value;
     
     resMessages.push(`Вы улыбаетесь на ${smiling} %`);
-    resMessages.push(`Ваш расса ${getRace(race)} на ${raceConfidence}`);
-    resMessages.push(`Ваш пол ${getGender(gender)} на ${genderConfidence}`);
+    resMessages.push(`Ваш расса ${getRace(race)} на ${raceConfidence} %`);
+    resMessages.push(`Ваш пол ${getGender(gender)} на ${genderConfidence} %`);
     resMessages.push(`Ваш возраст скорее всего ${age  + ageEnding(age)}`);
     return resMessages;
 }
@@ -28,7 +30,7 @@ function getRace(race) {
     if(race == 'Black') {
         return 'черная';
     }
-    return 'верная'
+    return 'европейская'
 }
 
 function getGender(gender) {
@@ -46,15 +48,15 @@ function ageEnding(age) {
     }
     switch (age) {
         case 1:
-            wordAge = 'год';
+            wordAge = ' год';
             break;
         case 2:
         case 3:
         case 4:
-            wordAge = 'года';
+            wordAge = ' года';
             break;
         default:
-            wordAge = 'лет';
+            wordAge = ' лет';
     }
     return wordAge;
 }
