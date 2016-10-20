@@ -29,6 +29,7 @@ bot.on('message', function (msg) {
         }
     } catch(err) {
         console.log(err);
+        bot.sendMessage(chatId, 'Не удалось обработать фото, попробуй другое');
     }
     
     
@@ -52,6 +53,7 @@ bot.on('message', function (msg) {
                     bot.sendMessage(chatId, item);
                 })
                 } catch (err) {
+                    bot.sendMessage(chatId, 'Не удалось обработать фото, попробуй другое');
                     console.log(err);
                 }
                 
