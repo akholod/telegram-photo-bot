@@ -42,14 +42,19 @@ bot.on('message', function (msg) {
             .header("X-Mashape-Key", "ZiSvxlSC2LmshyfmX0kP29QLie0jp19p1qljsnurHNcHpSBLTF")
             .header("Accept", "application/json")
             .end(function (result) {
-                if(!result.body.face[0]) {
-                    return bot.sendMessage(chatId,'У тебя нет лица на фото, или фото плохого качества. Попробуй отправить его мне как файл.');
+                try{
+                    if(!result.body.face[0]) {
+                        return bot.sendMessage(chatId,'У тебя нет лица на фото, или фото плохого качества. Попробуй отправить его мне как файл.');
+                    }
+                    var messages = createMessageHelper(result.body.face[0]);  
+                    console.log(result.body.face[0]);
+                    messages.forEach((item) => {
+                    bot.sendMessage(chatId, item);
+                })
+                } catch (err) {
+                    console.log(err);
                 }
-            var messages = createMessageHelper(result.body.face[0]);  
-            console.log(result.body.face[0]);
-            messages.forEach((item) => {
-                 bot.sendMessage(chatId, item);
-            })
+                
         });
     })
     
