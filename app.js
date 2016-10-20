@@ -11,6 +11,8 @@ bot.on('message', function (msg) {
     'use strict'
     console.log(msg);
     var chatId = msg.chat.id;
+    
+    try {
     if(msg.text ==='/start'){
         return bot.sendMessage(chatId, 'Привет, отправь мне фото человека, как файл или как фото в хоршем качестве');
     }
@@ -19,16 +21,20 @@ bot.on('message', function (msg) {
         return bot.sendMessage(chatId,'Это ты мне не фото отпрвил, отправь фото');
     }
     
-    var fileId;
-    if(msg.photo){
-        fileId = msg.photo[0].file_id;
-    } else {
-        fileId = msg.document.file_id;
+        var fileId;
+        if(msg.photo){
+            fileId = msg.photo[0].file_id;
+        } else {
+            fileId = msg.document.file_id;
+        }
+    } catch(err) {
+        console.log(err);
     }
+    
     
     var fileObj = bot.getFileLink(fileId);
     fileObj.then((link) => {
-       
+      
         console.log('This is file link ' + link);
         bot.sendMessage(chatId,'Подожди, обрабатываю твою фотку ' + link);
         
