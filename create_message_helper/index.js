@@ -1,4 +1,4 @@
-
+//parse incoming from face detection api data
 module.exports = function createResultMessege (obj) {
     'use strict'
     let resMessages = [];
