@@ -4,7 +4,7 @@
 
 Features
 --------
-Simple telegram bot for photo facial detectiom. User can send photo with person, and receive, in response person age, gender, race, smiling etc.
+Simple telegram bot for photo facial detection. User can send photo with person, and receive, in response person age, gender, race, smiling etc.
 
 ##### Running
 
